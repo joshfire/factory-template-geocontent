@@ -43,10 +43,45 @@
     ],
 
     "datasources": {
-      "geo": {
-        "title": "Geo content",
-        "description": "Feed(s) of items at the base of the slideshow. Note the template ignores items that do not define a location.",
-        "multiple": true
+      "feed1": {
+        "title": "Geo content 1",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed2": {
+        "title": "Geo content 2",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed3": {
+        "title": "Geo content 3",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed4": {
+        "title": "Geo content 4",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed5": {
+        "title": "Geo content 5",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed6": {
+        "title": "Geo content 6",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed7": {
+        "title": "Geo content 7",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed8": {
+        "title": "Geo content 8",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed9": {
+        "title": "Geo content 9",
+        "description": "A set of news items to add to the slideshow."
+      },
+      "feed10": {
+        "title": "Geo content 10",
+        "description": "A set of news items to add to the slideshow."
       }
     },
 
@@ -63,12 +98,214 @@
           "description": "Interval between two news refresh (in seconds).",
           "type": "number",
           "default": 300
+        },
+
+        "feeds": {
+          "title": "Quizzes metadata",
+          "type": "object",
+          "properties": {
+            "feed1": {
+              "title": "Feed 1",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed2": {
+              "title": "Feed 2",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed3": {
+              "title": "Feed 3",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed4": {
+              "title": "Feed 4",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed5": {
+              "title": "Feed 5",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed6": {
+              "title": "Feed 6",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed7": {
+              "title": "Feed 7",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed8": {
+              "title": "Feed 8",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed9": {
+              "title": "Feed 9",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            },
+            "feed10": {
+              "title": "Feed 10",
+              "type": "object",
+              "properties": {
+                "desc": {
+                  "title": "Description",
+                  "description": "Short description of the feed",
+                  "type": "string"
+                },
+                "image": {
+                  "title": "Image",
+                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       },
       "form": [
-        "datasources.geo",
         "durAnimation",
-        "durRefresh"
+        "durRefresh",
+        {
+          "type": "fieldset",
+          "legend": "List of feeds",
+          "items": [
+            "datasources.feed1",
+            "feeds.feed1.desc",
+            "feeds.feed1.image",
+            "datasources.feed2",
+            "feeds.feed2.desc",
+            "feeds.feed2.image",
+            "datasources.feed3",
+            "feeds.feed3.desc",
+            "feeds.feed3.image",
+            "datasources.feed4",
+            "feeds.feed4.desc",
+            "feeds.feed4.image",
+            "datasources.feed5",
+            "feeds.feed5.desc",
+            "feeds.feed5.image",
+            "datasources.feed6",
+            "feeds.feed6.desc",
+            "feeds.feed6.image",
+            "datasources.feed7",
+            "feeds.feed7.desc",
+            "feeds.feed7.image",
+            "datasources.feed8",
+            "feeds.feed8.desc",
+            "feeds.feed8.image",
+            "datasources.feed9",
+            "feeds.feed9.desc",
+            "feeds.feed9.image",
+            "datasources.feed10",
+            "feeds.feed10.desc",
+            "feeds.feed10.image"
+          ]
+        }
       ]
     }
   }
