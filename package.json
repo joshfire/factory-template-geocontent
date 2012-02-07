@@ -1,0 +1,75 @@
+{
+  "name": "geonews",
+  "description": "Geolocalized news on a 3D globe",
+  "author": "Joshfire",
+  "version": "0.0.1",
+  "description": "This template takes one or more feeds of geolocalized news items as inputs and runs a \"slideshow\" of the items on Earth. Depending on the capabilities of the device, the slideshow runs on a 3D globe or a 2D map.",
+
+  "keywords": [
+    "geolocalization",
+    "news",
+    "3D",
+    "map",
+    "webgl"
+  ],
+
+  "joshfire": {
+    "images": {
+      "small": "marketing/gen-small.png",
+      "big": "marketing/gen-large.png"
+    },
+
+    "devices": [
+      {
+        "devices": "phone",
+        "startfile": "app/index.html",
+        "images": "marketing/phone.png"
+      },
+      {
+        "devices": "tablet",
+        "startfile": "app/index.html",
+        "images": "marketing/tablet.png"
+      },
+      {
+        "devices": "desktop",
+        "startfile": "app/index.html",
+        "images": "marketing/tablet.png"
+      },
+      {
+        "devices": "tv",
+        "startfile": "app/index.html",
+        "images": "marketing/tv.png"
+      }
+    ],
+
+    "datasources": {
+      "geo": {
+        "title": "Geo content",
+        "description": "Feed(s) of items at the base of the slideshow. Note the template ignores items that do not define a location.",
+        "multiple": true
+      }
+    },
+
+    "options": {
+      "schema": {
+        "durAnimation": {
+          "title": "Display time",
+          "description": "Time to wait before jumping to next item (in seconds)",
+          "type": "number",
+          "default": 5
+        },
+        "durRefresh": {
+          "title": "Refresh interval",
+          "description": "Interval between two news refresh (in seconds).",
+          "type": "number",
+          "default": 300
+        }
+      },
+      "form": [
+        "datasources.geo",
+        "durAnimation",
+        "durRefresh"
+      ]
+    }
+  }
+}
