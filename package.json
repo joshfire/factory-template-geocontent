@@ -1,7 +1,7 @@
 {
   "name": "geocontent",
   "fullName": "GeoContent",
-  "description": "Geolocalized news on a 3D globe",
+  "description": "Geolocalized content on a 3D globe",
   "author": "Joshfire",
   "version": "0.0.1",
   "description": "This template takes one or more feeds of geolocalized content as input and runs a \"slideshow\" of the items on Earth. Depending on the capabilities of the device, the slideshow runs on a 3D globe or a 2D map.",
@@ -16,7 +16,7 @@
 
   "joshfire": {
     "devonly": true,
-
+    
     "images": {
       "small": "marketing/gen-small.png",
       "big": "marketing/gen-large.png"
@@ -111,15 +111,15 @@
               "title": "Feed 1",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -127,15 +127,15 @@
               "title": "Feed 2",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -143,15 +143,15 @@
               "title": "Feed 3",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -159,15 +159,15 @@
               "title": "Feed 4",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -175,15 +175,15 @@
               "title": "Feed 5",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -191,15 +191,15 @@
               "title": "Feed 6",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -207,15 +207,15 @@
               "title": "Feed 7",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -223,15 +223,15 @@
               "title": "Feed 8",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -239,15 +239,15 @@
               "title": "Feed 9",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             },
@@ -255,15 +255,15 @@
               "title": "Feed 10",
               "type": "object",
               "properties": {
-                "desc": {
-                  "title": "Description",
-                  "description": "Short description of the feed",
-                  "type": "string"
-                },
                 "image": {
                   "title": "Image",
-                  "description": "Feed image (URL). Image should be square, 200x200 at least",
+                  "description": "Feed image (URL). Landscape image, 88x60 at least",
                   "type": "string"
+                },
+                "useContent": {
+                  "title": "Content",
+                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
+                  "type": "boolean"
                 }
               }
             }
@@ -278,35 +278,65 @@
           "legend": "List of feeds",
           "items": [
             "datasources.feed1",
-            "feeds.feed1.desc",
             "feeds.feed1.image",
+            {
+              "key": "feed1.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed2",
-            "feeds.feed2.desc",
             "feeds.feed2.image",
+            {
+              "key": "feed2.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed3",
-            "feeds.feed3.desc",
             "feeds.feed3.image",
+            {
+              "key": "feed3.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed4",
-            "feeds.feed4.desc",
             "feeds.feed4.image",
+            {
+              "key": "feed4.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed5",
-            "feeds.feed5.desc",
             "feeds.feed5.image",
+            {
+              "key": "feed5.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed6",
-            "feeds.feed6.desc",
             "feeds.feed6.image",
+            {
+              "key": "feed6.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed7",
-            "feeds.feed7.desc",
             "feeds.feed7.image",
+            {
+              "key": "feed7.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed8",
-            "feeds.feed8.desc",
             "feeds.feed8.image",
+            {
+              "key": "feed8.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed9",
-            "feeds.feed9.desc",
             "feeds.feed9.image",
+            {
+              "key": "feed9.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            },
             "datasources.feed10",
-            "feeds.feed10.desc",
-            "feeds.feed10.image"
+            "feeds.feed10.image",
+            {
+              "key": "feed10.useContent",
+              "inlinetitle": "Use item's HTML content in info bubble"
+            }
           ]
         }
       ]
