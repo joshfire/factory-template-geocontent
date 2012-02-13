@@ -102,6 +102,11 @@ Joshfire.define([
             categs.publish('data', null);
           }
         }, 4000);
+
+        // Set the application's title
+        if (Joshfire.factory.config.app.name) {
+          $("head title").text(Joshfire.factory.config.app.name);
+        }
         
         
         // The header menu is displayed for a certain period of time,
