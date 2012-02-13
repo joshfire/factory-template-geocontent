@@ -1,0 +1,32 @@
+.josh-id-header_menu_lang li{
+  list-style-type:none;
+  display:inline;
+  margin-left:10px;
+}
+
+/* categories controls */
+
+
+.josh-id-header_menu_categories_rewind, .josh-id-header_menu_categories_forward{
+  position:absolute;
+  height: 41px;
+  width: 21px;
+  color: #FFF;
+  margin-top: 38px;
+  cursor: pointer;
+}
+
+
+.josh-id-header_menu_categories_rewind{
+  background: url(../images/btn-prev.png) no-repeat 0 0;
+}
+
+
+.josh-id-header_menu_categories_forward{
+  background: url(../images/btn-next.png) no-repeat 0 0;
+  right: 0px;  
+}
+
+.josh-id-header_menu_categories_list li p{
+  color: #E0E0E0;
+}

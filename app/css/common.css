@@ -1,0 +1,369 @@
+
+/*elements*/
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  overflow:hidden;
+}
+
+.josh-id-header {
+  height: 135px;
+  border-bottom: 1px solid black;
+  box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.5);
+  -webkit-transform:translate3d(0, 0, 0);
+  background-color: #222;
+  
+  background-image: linear-gradient(bottom, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%),url(../images/img-backgd.png);
+  background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%),url(../images/img-backgd.png);
+  background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%),url(../images/img-backgd.png);
+  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%),url(../images/img-backgd.png);
+  background-image: -ms-linear-gradient(bottom, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%),url(../images/img-backgd.png);
+  background-image: -webkit-gradient(
+	 linear,
+	 left bottom,
+	 left top,
+	 color-stop(0, rgba(0,0,0,0.5)),
+	 color-stop(1, rgba(255,255,255,0)),url(../images/img-backgd.png) 
+  );
+}
+
+.josh-id-header_logo {
+  height: 56px;
+  width: 137px;
+  margin: 36px 8px 0 0;
+  float: left;
+}
+
+.logo {
+  background: transparent url(../images/geocontent.png) center no-repeat;
+  background-size: cover;
+  height: 56px;
+  width: 137px;
+  margin: 0;
+}
+
+/* header menu */
+.josh-id-header_menu {
+  position:absolute;
+  top:0;
+  left:160px;
+  right: 20px;
+  padding: 0;
+  margin: 6px 4px 4px 4px;
+  /*
+  width: 85%;
+  */
+}
+
+.josh-id-header_menu_lang li {
+  list-style-type:none;
+  display:inline;
+  margin-left:10px;
+}
+
+.josh-id-header_menu_categories_list {
+  position:absolute;
+  left:20px;
+  right:20px;
+
+  overflow: hidden;
+  height: 102px;
+  background:  #111;
+  padding: 0;
+  margin: 0;
+
+  border-width: 10px;
+  border-image: url(../images/img-list-border.png) 10;
+  -webkit-border-image: url(../images/img-list-border.png) 10;
+  -moz-border-image: url(../images/img-list-border.png) 10;
+  -ms-border-image: url(../images/img-list-border.png) 10;
+  -o-border-image: url(../images/img-list-border.png) 10;
+  
+  display: block;
+  -webkit-background-clip: padding-box;
+}
+
+
+.josh-id-header_menu_categories_list ul {
+
+  position:relative;
+  width: 5000px;
+  height: 102px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.josh-id-header_menu_categories_list li {
+  position:relative;
+  list-style-type:none;
+  height: 81px;
+  width: 88px;
+  float:left;
+  background-color:#333;
+  color: #F1F1F1;
+  padding: 7px;
+  margin: 4px 3px 3px 2px;
+  box-shadow: inset 0 0px 0px 1px #333;/*rgba(255,255,255,0.1);*/
+  
+  background-image: linear-gradient(bottom, rgb(34,34,34) 0%, rgb(51,51,51) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(34,34,34) 0%, rgb(51,51,51) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(34,34,34) 0%, rgb(51,51,51) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(34,34,34) 0%, rgb(51,51,51) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(34,34,34) 0%, rgb(51,51,51) 100%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(34,34,34)),
+    color-stop(1, rgb(51,51,51))
+  );
+  cursor: pointer;
+}
+
+.josh-id-header_menu_categories_list li div.image {
+  width: 84px;
+  height: 56px;
+  border: 2px solid #F1F1F1;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0,0.2);
+  border-image: initial;
+  background-size:cover;
+}
+
+.josh-id-header_menu_categories_list li img {
+  border:1px solid rgba(0, 0, 0, 0.2);
+  
+  width: 84px;
+  height: 56px;
+  border: 2px solid #F1F1F1;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0,0.2);
+  border-image: initial;
+}
+
+.josh-id-header_menu_categories_list li p {
+  text-align: center;
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+#afp-globe-news__header__menu__categories {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* hover/focus & selected should be different colors */
+.josh-id-header_menu_categories_list li.focused {
+  box-shadow: 0 0 6px 2px #bfdbff;
+}
+
+
+.josh-id-header_menu_categories_list li.selected {
+  box-shadow: inset 0 0px 0px 1px rgba(255,255,255,0.1);
+  background-image: linear-gradient(bottom, rgba(27, 73, 153, 1) 25%, rgba(48,124,217,1) 100%);
+  background-image: -o-linear-gradient(bottom, rgba(27, 73, 153, 1) 25%, rgba(48,124,217,1) 100%);
+  background-image: -moz-linear-gradient(bottom, rgba(27, 73, 153, 1) 25%, rgba(48,124,217,1) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgba(27, 73, 153, 1) 25%, rgba(48,124,217,1) 100%);
+  background-image: -ms-linear-gradient(bottom, rgba(27, 73, 153, 1) 25%, rgba(48,124,217,1) 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.25, rgba(27, 73, 153, 1)),
+    color-stop(1, rgba(48,124,217,1))
+  );
+}
+
+
+/* content */
+.josh-type-Map {
+  position:absolute;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.josh-id-news ul {
+  display:none;
+}
+
+.josh-id-news li {
+  float:left;
+  margin-left:5px;
+  list-style-type:none;
+  background-color:white;
+  border:1px solid darkgrey;
+  -webkit-border-radius:3px;
+}
+.josh-id-news li.focused {
+  float:left;
+  margin-left:5px;
+  list-style-type:none;
+  background-color:orange;
+  border:1px solid red;
+  -webkit-border-radius:3px;
+}
+
+/* CITY */
+.josh-id- .josh-id-city {
+  position:absolute;
+  top: 49.4%;
+  right: 49.8%;
+  overflow: hidden; 
+}
+
+.josh-id- .josh-id-city .josh-id-city-inner {
+  overflow: hidden;
+  background: #333;
+  padding: 5px 10px;
+  font-weight: 200;
+  color:#FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-shadow: none;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+}
+
+
+/* DETAIL BUBBLE */
+
+/* The whole detail box */
+.josh-id-detail {
+  position: absolute;
+  top: 23%;
+  right: 12%;
+  bottom: 10%;
+  left: 50.5%;
+  overflow: visible;
+
+  padding: 0;
+  color: #333;
+  background: transparent;
+}
+
+/* The arrow on the left of the bubble */
+.josh-id-detail .bubble {
+  width: 22px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent url(../images/img-fleche-bulle.png) no-repeat 0 37.6%;
+}
+
+/* The bubble in itself, takes the whole space available */
+.josh-id-detail .info {
+  position: absolute;
+  left: 22px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  display: table;
+  height: 100%;
+}
+
+/* The container within the bubble, centered vertically */
+.josh-id-detail .info-cnt {
+  display: table-cell;
+  margin: 0;
+  vertical-align: middle;
+  height: 100%;
+}
+
+
+/* The contents of the bubble impose the background color */
+.josh-id-detail .info-content {
+  background: #333;
+  padding: 0;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 200px;
+}
+
+.josh-id-detail .info-content .content-inner {
+  position: relative;
+  margin: 15px 25px 20px 25px;
+}
+
+/* Title within the bubble. Same style for the city if defined */
+.josh-id-detail h3,
+.josh-id-city {
+  font-family: 'Helvetica Neue', 'Helvetica', 'arial', sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  margin: 0px 0 15px 0;
+  color: #F1F1F1;
+  text-shadow: 0px -1px 0 black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* The gradient appears at the bottom of the bubble to make the content disappear,
+ only activated when there's some content displayed. */
+.caption-on .gradient {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  background: -moz-linear-gradient(top, rgba(51,51,51,0) 0%, rgba(51,51,51,0.7) 33%, rgba(51,51,51,0.95) 86%, rgba(51,51,51,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(51,51,51,0)), color-stop(33%,rgba(51,51,51,0.7)), color-stop(86%,rgba(51,51,51,0.95)), color-stop(100%,rgba(51,51,51,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(51,51,51,0) 0%,rgba(51,51,51,0.7) 33%,rgba(51,51,51,0.95) 86%,rgba(51,51,51,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(51,51,51,0) 0%,rgba(51,51,51,0.7) 33%,rgba(51,51,51,0.95) 86%,rgba(51,51,51,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(51,51,51,0) 0%,rgba(51,51,51,0.7) 33%,rgba(51,51,51,0.95) 86%,rgba(51,51,51,1) 100%); /* IE10+ */
+  background: linear-gradient(top, rgba(51,51,51,0) 0%,rgba(51,51,51,0.7) 33%,rgba(51,51,51,0.95) 86%,rgba(51,51,51,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00333333', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
+}
+
+/* The image can take the whole space if it's alone,
+ but not if there's some text below */
+.josh-id-detail .image {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 0;
+  padding: 1px;
+  display: block;
+}
+
+.josh-id-detail .image img {
+  max-width: 97%;
+  max-height: 100%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.7);
+  border: 3px solid #F1F1F1;
+}
+
+.josh-id-detail .caption-on .image img {
+  max-height: 55%;
+}
+
+.josh-id-detail .caption {
+  margin-top: 2%;
+  width: 100%;
+  font-size: 0.7em;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  color: #F1F1F1;
+  padding-bottom: 40px;
+}
+
+.josh-id-detail .caption p {
+  margin: 0;
+}

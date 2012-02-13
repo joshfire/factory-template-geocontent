@@ -1,0 +1,57 @@
+.josh-id-header_menu_categories_rewind, .josh-id-header_menu_categories_forward {
+ display:none;
+}
+
+
+/* categories */
+
+.afp-globe-news__header__menu__categories__list_scroller{
+  position:absolute;
+}
+.scrollbarH{
+  display:none;
+  background-color:#000;
+  height:5px;
+  position:absolute;
+  bottom:0px;
+  left:2px;
+  right:2px;
+}
+.scrollbarH > div{
+  background-color:#2267be;
+  height:100%;
+}
+
+.afp-globe-news__header__menu__categories__list li{
+  -webkit-transform:translate3d(0, 0, 0);
+
+  -webkit-transform: perspective(1000);
+}
+
+#splashscreen img{
+  left: 43%;
+}
+
+.josh-id-detail .image img {
+  max-width: 306px;
+  max-height: 55%;
+}
+
+.josh-id-detail .caption {
+  max-height: 160px;
+  overflow: hidden;
+  margin-top: 2%;
+}
+
+.josh-id-detail .caption p {
+  display:none;
+  margin: 0;
+}
+
+.josh-id-detail .caption p:first-child{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+}
