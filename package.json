@@ -1,9 +1,10 @@
 {
-  "name": "geonews",
+  "name": "geocontent",
+  "fullName": "GeoContent",
   "description": "Geolocalized news on a 3D globe",
   "author": "Joshfire",
   "version": "0.0.1",
-  "description": "This template takes one or more feeds of geolocalized news items as inputs and runs a \"slideshow\" of the items on Earth. Depending on the capabilities of the device, the slideshow runs on a 3D globe or a 2D map.",
+  "description": "This template takes one or more feeds of geolocalized content as input and runs a \"slideshow\" of the items on Earth. Depending on the capabilities of the device, the slideshow runs on a 3D globe or a 2D map.",
 
   "keywords": [
     "geolocalization",
@@ -14,6 +15,8 @@
   ],
 
   "joshfire": {
+    "devonly": true,
+
     "images": {
       "small": "marketing/gen-small.png",
       "big": "marketing/gen-large.png"
