@@ -7,7 +7,7 @@ Joshfire.define(['joshfire/vendor/underscore'], function(_){
   /* news */
   templates.newsCity = '<% if (item.location && item.location.city){%><div class="josh-id-city-inner"><%=item.location.city%></div><%}%>';
   templates.newsTitle = '<h3><%=item.name%></h3>';
-  templates.newsImage = '<%if (item.image && item.image.contentURL){%><div class="image"><img src="<%=item.image.contentURL%>" alt=""></div><%} else if (item.contentURL) {%><div class="image"><img src="<%=item.contentURL%>" alt=""></div><%}%>';
+  templates.newsImage = '<%if (item.contentURL) {%><div class="image"><img src="<%=item.contentURL%>" alt=""></div><%} else if (item.image && item.image.contentURL){%><div class="image"><img src="<%=item.image.contentURL%>" alt=""></div><%}%>';
   templates.newsContent = '<div class="content"><%=item.description%></div>';
   templates.newsAuthor = '<%if (item.author){%><div class="author"><%=item.author.name%></div><%}%>';
   templates.newsCaption = '<div class="caption"><%=item.description%></div>';

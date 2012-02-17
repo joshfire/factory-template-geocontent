@@ -79,6 +79,28 @@ Joshfire.define([
     setup: function (callback) {
       var self = this;
       self.__super(callback);
+
+      if (Joshfire.factory.config.template.options.durAnimation) {
+        self.newsShiftPeriod = Joshfire.factory.config.template.options.durAnimation * 1000;
+      }
+      if (Joshfire.factory.config.template.options.durRefresh) {
+        self.refreshInterval = Joshfire.factory.config.template.options.durRefresh * 1000;
+      }
+
+      var map = self.ui.element('/map');
+
+        // Set 3D and 3D provider
+        if (Joshfire.factory.config.template.options.enable3D) {
+          map.options.enable3D = true;
+          map.webGLEnabled = true;
+        }
+        else {
+          map.options.enable3D = false;
+          map.webGLEnabled = false;
+        }
+        if (Joshfire.factory.config.template.options.provider3D) {
+          map.options.mapOptions.provider3D = Joshfire.factory.config.template.options.provider3D;
+        }
       
       // Subscribe to the afterInsert event that gets triggered
       // when... er... that's a good question ???
@@ -92,22 +114,6 @@ Joshfire.define([
         
         var newsList = self.ui.element('/news');
         var map = self.ui.element('/map');
-
-        /*
-        TODO: Following code won't work because map has already been initialized
-        // Set 3D and 3D provider
-        if (Joshfire.factory.config.template.options.enable3D) {
-          map.options.enable3D = true;
-          map.webGLEnabled = true;
-        }
-        else {
-          map.options.enable3D = false;
-          map.webGLEnabled = false;
-        }
-        if (Joshfire.factory.config.template.options.provider3D) {
-          map.options.mapOptions.provider3D = Joshfire.factory.config.template.options.provider3D;
-        }
-        */
         
         // There's a weird bug that happens from time to time: the 'data'
         // event may not be caught, even it the data was fetched. The workaround
@@ -205,7 +211,8 @@ Joshfire.define([
                 if (feed) {
                   feed.entries = _.map(feed.entries, function (item, index) {
                     return _.extend(item, {
-                      id: '#' + category.name + '-' + index
+                      id: '#' + category.name + '-' + index,
+                      useContent: category.useContent
                     });
                   });
                 }

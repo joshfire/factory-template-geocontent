@@ -84,6 +84,20 @@
 
     "options": {
       "schema": {
+        "enable3D": {
+          "title": "Enable 3D",
+          "type": "boolean",
+          "default": true
+        },
+        "provider3D": {
+          "title": "3D map provider",
+          "type": "string",
+          "enum": [
+            "Bing",
+            "Google"
+          ],
+          "default": "Bing"
+        },
         "durAnimation": {
           "title": "Display time",
           "description": "Time to wait before jumping to next item (in seconds)",
@@ -265,6 +279,11 @@
         }
       },
       "form": [
+        {
+          "key": "enable3D",
+          "inlinetitle": "Enable 3D globe or stick to a 2D map representation"
+        },
+        "provider3D",
         "durAnimation",
         "durRefresh",
         {

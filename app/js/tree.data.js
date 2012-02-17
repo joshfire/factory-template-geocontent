@@ -43,29 +43,6 @@ Joshfire.define([
               image: {
                 itemType: 'ImageObject',
                 contentURL: feedMeta.image
-              },
-              children: function (query, cb) {
-                // When asked, retrieve the elements that compose the datasource
-                datasource.find({}, function (err, data) {
-                  // The framework requires an 'id', but datasources
-                  // use 'url' (or nothing). Make sure we have an id.
-                  // NB: the framework does not like URL as ids!
-                  if (err) {
-                    // No data, an error occurred
-                    return cb(err);
-                  }
-                  if (!data) {
-                    return cb(null)
-                  }
-                  var items = _.map(data.entries, function (item, idx) {
-                    return _.extend(item, {
-                      id: "#" + idx,
-                      useContent: feedMeta.useContent
-                    });
-                  });
-
-                  cb(null, items);
-                });
               }
             }));
           }
