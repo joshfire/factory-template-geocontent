@@ -78,16 +78,16 @@ Joshfire.define([
         {
           id: 'map',
           type: Map,
-          enable3D: false, // TODO: set to true
+          enable3D: true,
           zoom: 4,
           mapOptions: {
             mapTypeControl: false,
             streetViewControl: false,
-            zoomControl: true,
-            scrollwheel: true,
+            zoomControl: false,
+            scrollwheel: false,
             draggable: false,
-            provider3D: 'google',
-            mapType3D: 'Terrain',
+            provider3D: 'BING',
+            mapType3D: 'AerialWithLabels',
             maxAscent3D: 0.5,
             travelDuration3D: 4500,
             altitude3D: 2000000, //810000, //150000

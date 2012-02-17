@@ -92,6 +92,22 @@ Joshfire.define([
         
         var newsList = self.ui.element('/news');
         var map = self.ui.element('/map');
+
+        /*
+        TODO: Following code won't work because map has already been initialized
+        // Set 3D and 3D provider
+        if (Joshfire.factory.config.template.options.enable3D) {
+          map.options.enable3D = true;
+          map.webGLEnabled = true;
+        }
+        else {
+          map.options.enable3D = false;
+          map.webGLEnabled = false;
+        }
+        if (Joshfire.factory.config.template.options.provider3D) {
+          map.options.mapOptions.provider3D = Joshfire.factory.config.template.options.provider3D;
+        }
+        */
         
         // There's a weird bug that happens from time to time: the 'data'
         // event may not be caught, even it the data was fetched. The workaround
@@ -541,12 +557,13 @@ Joshfire.define([
       ], function (found, prop) {
         return found || (prop ? data[prop] : data);
       }, null);
+      /*
       if (!locationItem.geo) {
         locationItem.geo = {
           latitude: Math.floor(Math.random() * 180) - 90,
           longitude: Math.floor(Math.random() * 360) - 180
         };
-      }       
+      }*/     
       if (locationItem && locationItem.geo && locationItem.geo.latitude && locationItem.geo.longitude) {
         location = {
           lat: locationItem.geo.latitude,
