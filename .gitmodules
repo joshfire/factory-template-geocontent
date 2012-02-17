@@ -1,3 +1,3 @@
-[submodule "deps/joshfire-framework"]
-	path = deps/joshfire-framework
+[submodule "app/js/joshfire"]
+	path = app/js/joshfire
 	url = git://github.com/joshfire/joshfire-framework.git
