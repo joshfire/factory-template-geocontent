@@ -18,73 +18,67 @@
     "devonly": true,
     
     "images": {
-      "small": "marketing/gen-small.png",
-      "big": "marketing/gen-large.png"
+      "small": "marketing/geo-small.png",
+      "big": "marketing/geo-large.png"
     },
 
     "devices": [
       {
-        "devices": "phone",
-        "startfile": "app/index.html",
-        "images": "marketing/phone.png"
-      },
-      {
         "devices": "tablet",
-        "startfile": "app/index.html",
-        "images": "marketing/tablet.png"
+        "startfile": "app/index.html"
       },
       {
         "devices": "desktop",
         "startfile": "app/index.html",
-        "images": "marketing/tablet.png"
+        "images": "marketing/geo-desktop.png"
       },
       {
         "devices": "tv",
         "startfile": "app/index.html",
-        "images": "marketing/tv.png"
+        "images": "marketing/geo-tv.png"
       }
     ],
 
     "datasources": {
       "feed1": {
         "title": "Geo content 1",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed2": {
         "title": "Geo content 2",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed3": {
         "title": "Geo content 3",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed4": {
         "title": "Geo content 4",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed5": {
         "title": "Geo content 5",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed6": {
         "title": "Geo content 6",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed7": {
         "title": "Geo content 7",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed8": {
         "title": "Geo content 8",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed9": {
         "title": "Geo content 9",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       },
       "feed10": {
         "title": "Geo content 10",
-        "description": "A set of news items to add to the slideshow."
+        "description": "Non geolocalized items are ignored"
       }
     },
 
@@ -280,61 +274,61 @@
             "datasources.feed1",
             "feeds.feed1.image",
             {
-              "key": "feed1.useContent",
+              "key": "feeds.feed1.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed2",
             "feeds.feed2.image",
             {
-              "key": "feed2.useContent",
+              "key": "feeds.feed2.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed3",
             "feeds.feed3.image",
             {
-              "key": "feed3.useContent",
+              "key": "feeds.feed3.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed4",
             "feeds.feed4.image",
             {
-              "key": "feed4.useContent",
+              "key": "feeds.feed4.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed5",
             "feeds.feed5.image",
             {
-              "key": "feed5.useContent",
+              "key": "feeds.feed5.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed6",
             "feeds.feed6.image",
             {
-              "key": "feed6.useContent",
+              "key": "feeds.feed6.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed7",
             "feeds.feed7.image",
             {
-              "key": "feed7.useContent",
+              "key": "feeds.feed7.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed8",
             "feeds.feed8.image",
             {
-              "key": "feed8.useContent",
+              "key": "feeds.feed8.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed9",
             "feeds.feed9.image",
             {
-              "key": "feed9.useContent",
+              "key": "feeds.feed9.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             },
             "datasources.feed10",
             "feeds.feed10.image",
             {
-              "key": "feed10.useContent",
+              "key": "feeds.feed10.useContent",
               "inlinetitle": "Use item's HTML content in info bubble"
             }
           ]
