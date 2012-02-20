@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>GeoContent</title>
+
+    <link rel="stylesheet" type='text/css' href='css/common.css' />
+    <link rel="stylesheet" type='text/css' href='css/tv.css' />
+  </head>
+
+  <body>
+    <script data-main="js/" src="js/joshfire/lib/adapters/browser/bootstrap.js"></script>
+    <script data-joshfire-bootstrap src="js/boot.js"></script>
+    <script>
+      Joshfire.basePath = 'joshfire/lib/';
+      Joshfire.require(['app.browser'], function (App) {
+        window._app = new App();
+      });
+    </script>
+  </body>
+</html>

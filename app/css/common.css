@@ -356,14 +356,17 @@ body {
 
 .josh-id-detail .image img {
   max-width: 97%;
-  max-height: 500px;
   display: inline-block;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.7);
   border: 3px solid #F1F1F1;
 }
 
+.josh-id-detail .image img {
+  max-height: 300px;
+}
+
 .josh-id-detail .caption-on .image img {
-  max-height: 400px;
+  max-height: 200px;
 }
 
 .josh-id-detail .caption {

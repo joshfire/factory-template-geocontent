@@ -28,10 +28,6 @@
   -webkit-transform: perspective(1000);
 }
 
-#splashscreen img{
-  left: 43%;
-}
-
 .josh-id-detail .image img {
   max-width: 306px;
   max-height: 55%;
@@ -41,17 +37,4 @@
   max-height: 160px;
   overflow: hidden;
   margin-top: 2%;
-}
-
-.josh-id-detail .caption p {
-  display:none;
-  margin: 0;
-}
-
-.josh-id-detail .caption p:first-child{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
 }

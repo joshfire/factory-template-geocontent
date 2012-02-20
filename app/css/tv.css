@@ -30,12 +30,3 @@
 .josh-id-header_menu_categories_list li p{
   color: #E0E0E0;
 }
-
-/* More space for images */
-.josh-id-detail .image img {
-  max-height: 500px;
-}
-
-.josh-id-detail .caption-on .image img {
-  max-height: 400px;
-}

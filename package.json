@@ -25,7 +25,7 @@
     "devices": [
       {
         "devices": "tablet",
-        "startfile": "app/index.html"
+        "startfile": "app/index.tablet.html"
       },
       {
         "devices": "desktop",
@@ -34,7 +34,7 @@
       },
       {
         "devices": "tv",
-        "startfile": "app/index.html",
+        "startfile": "app/index.tv.html",
         "images": "marketing/geo-tv.png"
       }
     ],
