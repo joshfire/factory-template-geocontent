@@ -244,7 +244,7 @@ body {
   overflow: visible;
 
   padding: 0;
-  color: #333;
+  color: #F1F1F1;
   background: transparent;
 }
 
@@ -315,6 +315,17 @@ body {
   -webkit-box-orient: vertical;
 }
 
+/* The author next to the title */
+.josh-id-detail .author {
+  font-size: small;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.josh-id-detail .author span {
+  font-style: italic;
+}
+
 /* The gradient appears at the bottom of the bubble to make the content disappear,
  only activated when there's some content displayed. */
 .caption-on .gradient {
@@ -345,14 +356,14 @@ body {
 
 .josh-id-detail .image img {
   max-width: 97%;
-  max-height: 100%;
+  max-height: 500px;
   display: inline-block;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.7);
   border: 3px solid #F1F1F1;
 }
 
 .josh-id-detail .caption-on .image img {
-  max-height: 55%;
+  max-height: 400px;
 }
 
 .josh-id-detail .caption {

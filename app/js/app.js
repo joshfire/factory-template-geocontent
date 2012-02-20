@@ -49,6 +49,12 @@ Joshfire.define([
     refreshInterval: 1000 * 60 * 5,
 
     /**
+     * Should the list of items be refreshed?
+     * @type boolean
+     */
+    refreshItems: false,
+
+    /**
      * Time during which a news item stays on screen (in milliseconds)
      */
     newsShiftPeriod: 10 * 1000,
@@ -80,6 +86,12 @@ Joshfire.define([
       var self = this;
       self.__super(callback);
 
+      // Set the application's title
+      if (Joshfire.factory.config.app.name) {
+        $("head title").text(Joshfire.factory.config.app.name);
+      }
+
+      // Set animation configuration options
       if (Joshfire.factory.config.template.options.durAnimation) {
         self.newsShiftPeriod = Joshfire.factory.config.template.options.durAnimation * 1000;
       }
@@ -87,20 +99,19 @@ Joshfire.define([
         self.refreshInterval = Joshfire.factory.config.template.options.durRefresh * 1000;
       }
 
+      // Enable 3D if so requested and set 3D provider
       var map = self.ui.element('/map');
-
-        // Set 3D and 3D provider
-        if (Joshfire.factory.config.template.options.enable3D) {
-          map.options.enable3D = true;
-          map.webGLEnabled = true;
-        }
-        else {
-          map.options.enable3D = false;
-          map.webGLEnabled = false;
-        }
-        if (Joshfire.factory.config.template.options.provider3D) {
-          map.options.mapOptions.provider3D = Joshfire.factory.config.template.options.provider3D;
-        }
+      if (Joshfire.factory.config.template.options.enable3D) {
+        map.options.enable3D = true;
+        map.webGLEnabled = true;
+      }
+      else {
+        map.options.enable3D = false;
+        map.webGLEnabled = false;
+      }
+      if (Joshfire.factory.config.template.options.provider3D) {
+        map.options.mapOptions.provider3D = Joshfire.factory.config.template.options.provider3D;
+      }
       
       // Subscribe to the afterInsert event that gets triggered
       // when... er... that's a good question ???
@@ -114,6 +125,11 @@ Joshfire.define([
         
         var newsList = self.ui.element('/news');
         var map = self.ui.element('/map');
+
+        // Counter incremented each time the list of categories
+        // is modified. Used to prevent conflicting updates,
+        // i.e. as event handler re-entry detector.
+        var changeCounter = 0;
         
         // There's a weird bug that happens from time to time: the 'data'
         // event may not be caught, even it the data was fetched. The workaround
@@ -124,50 +140,65 @@ Joshfire.define([
             categs.publish('data', null);
           }
         }, 4000);
-
-        // Set the application's title
-        if (Joshfire.factory.config.app.name) {
-          $("head title").text(Joshfire.factory.config.app.name);
-        }
         
         
         // The header menu is displayed for a certain period of time,
         // then folded automatically. Starts the countdown.
         self.headerFoldingCountdownReset(self);
         
-        // Any user interaction causes the header menu to appear on screen
+        // Most user interactions cause the header menu to appear on screen
         // if it's not there already, and resets the countdown.
-        $(window).bind('keypress touchstart click MozTouchDown swipeLeft swipeRight swipeUp swipeDown', function (e) {
+        $(window).bind('touchstart click MozTouchDown swipeLeft swipeRight swipeUp swipeDown', function (e) {
           self.headerFoldingCountdownReset(self);
+        });
+
+        // If the user hits 'space', the currently displayed item is
+        // highlighted again, and countdown to next item is reset.
+        // If the user hits 'n', move to next news item.
+        // Toggle the header menu otherwise.
+        $(document).bind('keypress', function (event) {
+          // 32: space, 13: enter
+          if (event.keyCode === 32) {
+            self.toggleNewsCountdown();
+          }
+          else if ((event.keyCode === 'n'.charCodeAt(0)) || (event.keyCode === 'N'.charCodeAt(0))) {
+            self.nextNews(self);
+          }
+          else {
+            self.headerFoldingCountdownReset(self);
+          }
         });
         
         // The data event is normally triggered when the list of
-        // categories is initialized or updated
+        // categories is initialized or updated. That should happen
+        // only once in the lifetime of the application
         categs.subscribe('data', function (ev, data) {
           // console.warn('got categs data', categs.data)
           // Set the 'started' flag. That's it, we have data
           self.started = true;
           
           if (_.isEqual(categs.data, categs.savData)) {
-           console.warn('nothing new', categs.data, categs.savData);
+            // No change in the list of categories selected
+            // (the 'data' gets triggered more than once from time to time)
+            return;
+          }
+           
+          /** store data in savData, to check for potential changes next time **/
+          categs.savData = categs.data;
+          //alert('Caught "data" event');
+          
+          /** Reset news list */
+          newsList.setData([]);
+          
+          /** Does the user have settings saved within a cookie ? **/
+          var cookiePrefs = JSON.parse(myCookie('geocontent-' + Joshfire.factory.config.app.id + '-categs'));
+          if (cookiePrefs && cookiePrefs[mode] && cookiePrefs[mode].length) {
+            /** Restore user's categories **/
+           self.selectListItem(categs, 'id', cookiePrefs[mode]);
           }
           else {
-            /** store data in savData, to check for potential changes next time **/
-            categs.savData=categs.data;
-            
-            /** init news */
-            newsList.setData([]);
-            
-            /** Does the user have settings saved within a cookie ? **/
-            var cookiePrefs = JSON.parse(myCookie('geocontent-' + Joshfire.factory.config.app.id + '-categs'));
-            if (cookiePrefs && cookiePrefs[mode] && cookiePrefs[mode].length) {
-              /** Restore user's categories **/
-             self.selectListItem(categs, 'id', cookiePrefs[mode]);
-            }
-            else{
-              /* Default: select first feed in the list **/
-              self.selectListItem(categs,'index', 0);
-            }
+            /* Default: select first feed in the list **/
+            self.selectListItem(categs, 'index', 0);
           }
         });
         
@@ -176,6 +207,18 @@ Joshfire.define([
         // saving them in a cookie, and refreshing the list of
         // items that serves as food for the slideshow
         categs.subscribe('select', function (ev, data) {
+          // Increment the global counter that keeps track of the calls to
+          // this event handler and store a local copy of it. The local copy
+          // will be compared back to the global counter in asynchronous
+          // callbacks to ensure only the latest change is applied.
+          var currentCounter = 0;
+          changeCounter += 1;
+          currentCounter = changeCounter;
+          //alert('Caught change in selected categories, counter: ' + currentCounter);
+
+          // Check whether data needs to be refreshed
+          var refreshNeeded = self.refreshItems;
+
           // Get the list of categories selected
           var selected = categs.getState('selection');
 
@@ -183,7 +226,7 @@ Joshfire.define([
           myCookie('geocontent-' + Joshfire.factory.config.app.id + '-mode', mode);
           var categsPrefs = JSON.parse(myCookie('geocontent-' + Joshfire.factory.config.app.id + '-categs')) || {};
           categsPrefs[mode] = selected;
-          myCookie('geocontent-' + Joshfire.factory.config.app.id + 'categs', JSON.stringify(categsPrefs));
+          myCookie('geocontent-' + Joshfire.factory.config.app.id + '-categs', JSON.stringify(categsPrefs));
 
           // Init data cache if it's the first time the function is run
           if (!newsList.dataCache) {
@@ -201,8 +244,8 @@ Joshfire.define([
           // Parse selected categories, looking for those that
           // might need to be refreshed
           async.map(selectedCategs, function (category, callback) {
-            if (category.data) {
-              // No need to fetch the category, we already have it
+            if (category.data && !refreshNeeded) {
+              // No need to fetch the category if we already have it
               callback(null, category.data);
             }
             else {
@@ -221,38 +264,39 @@ Joshfire.define([
               });
             }
           }, function (err, feeds) {
-            // Final callback method when all elements have been
-            // fetched.
+            // Final callback method when all elements have been fetched.
             if (err) {
+              // Update failed. Try again automatically at the end of the
+              // refresh loop.
+              // TODO: alert the user that something went wrong through a pop-in
+              // or something similar.
+              //alert(err);
+              self.startRefreshLoop();
               return false;
             }
 
-            // Add list of feeds to the newsList element
-            newsList.data = [];
-            _.each(feeds, function (feed) {
-              if (feed.entries) {
-                newsList.data = newsList.data.concat(feed.entries);
+            // Add list of feeds to the newsList element, unless another
+            // change has been requested in the meantime
+            if (currentCounter === changeCounter) {
+              //alert('Applying changes to list of items for change: ' + currentCounter);
+              newsList.data = [];
+              _.each(feeds, function (feed) {
+                if (feed.entries) {
+                  newsList.data = newsList.data.concat(feed.entries);
+                }
+              });
+              
+              if (self.refreshItems) {
+                // Selected datasources were refreshed,
+                // reset refresh loop
+                self.refreshItems = false;
+                self.startRefreshLoop();
               }
-            });
 
-            // Update news based on that data
-            self.updateNews(self);
-                  
-            // Start refresh loop
-            self.startRefreshLoop();
+              // Update news based on that data
+              self.updateNews(self);
+            }
           });
-        });
-        
-        // If the user hits 'space', the currently displayed item is
-        // highlighted again, and countdown to next item is reset.
-        $(document).bind('keypress', function (event) {
-          // 32: space, 13: enter
-          if (event.keyCode === 32) {
-            self.toggleNewsCountdown();
-          }
-          else if (event.keyCode === 13) {
-            self.nextNews(self);
-          }
         });
         
         // Select the first item in the new list of news when new items
@@ -263,8 +307,7 @@ Joshfire.define([
           }
         });
         
-        // The 'select' event occurs when the user selects another feed
-        // in the header bar.
+        // The 'select' event occurs when the current news item changes
         newsList.subscribe('select', function(ev, id) {
           self.changeNews(self, id);
         });
@@ -365,17 +408,31 @@ Joshfire.define([
     getSortedNews: function (self) {
       
       var newsIn = self.ui.element('/news').data;
-
-      var newsOut = _.sortBy(newsIn, function (item) {
-        return -item.updatedDate;
-      });
+      var newsOut = null;
       
+      if (Joshfire.factory.config.template.options.randomize) {
+        newsOut = _.shuffle(newsIn);
+      }
+      else {
+        newsOut = _.sortBy(newsIn, function (item) {
+          return item.datePublished
+                  || item.dateModified
+                  || item.dateCreated
+                  || item.uploadDate
+                  || item.startDate
+                  || item.endDate
+                  || item.datePosted
+                  || item.foundingDate
+                  || item.birthDate
+                  || item.deathDate;
+        }).reverse();
+      }
       
       return newsOut;
     },
 
     /** 
-     * Starts news refresh loop using setInterval.
+     * Starts news refresh loop using setTimeout.
      * @function
      **/
     startRefreshLoop: function () {
@@ -384,8 +441,9 @@ Joshfire.define([
       if (self.refreshLoop){
         self.stopRefreshLoop();
       }
-      self.refreshLoop = setInterval(function () {
+      self.refreshLoop = setTimeout(function () {
         var categs = self.ui.element(self.categsUIPath);
+        self.refreshItems = true;
         categs.publish('select', [categs.getState('selection')]);
       }, self.refreshInterval);
     },
@@ -618,11 +676,10 @@ Joshfire.define([
      * @param {App} self
      **/
     nextNews: function (self) {
-
       var newsList = self.ui.element('/news');
       if (!newsList.data || !newsList.data.length){
-        //no data ... no action
-        console.warn('no data :(');
+        // No data ... no action
+        console.warn('No data to render');
         return false;
       }
       self.stopNewsCountdown();
@@ -682,10 +739,12 @@ Joshfire.define([
       infoCity.data = infoWindow.data;
       infoCity.refresh();
 
+      // TODO: understand why the outer calls to setTimeout are useful
+      // TODO: use setTimeout instead of setInterval to avoid re-entries
       setTimeout(function () {
         setTimeout(function () {
-          var loop= setInterval(function () {
-            if (mapUI.getZoom()>= mapUI.mapOptions.zoom) {
+          var loop = setInterval(function () {
+            if (mapUI.getZoom() >= mapUI.mapOptions.zoom) {
               clearInterval(loop);
               self.fadeIn(infoWindow);
               self.fadeIn(infoCity);

@@ -110,6 +110,11 @@
           "type": "number",
           "default": 300
         },
+        "randomize": {
+          "title": "Slideshow order",
+          "type": "boolean",
+          "default": false
+        },
 
         "feeds": {
           "title": "Quizzes metadata",
@@ -286,6 +291,10 @@
         "provider3D",
         "durAnimation",
         "durRefresh",
+        {
+          "key": "randomize",
+          "inlinetitle": "Randomize items (most recent items are displayed first otherwise)"
+        },
         {
           "type": "fieldset",
           "legend": "List of feeds",
