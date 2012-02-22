@@ -14,9 +14,7 @@
     "webgl"
   ],
 
-  "joshfire": {
-    "devonly": true,
-    
+  "joshfire": {    
     "images": {
       "small": "marketing/geo-small.png",
       "big": "marketing/geo-large.png"
