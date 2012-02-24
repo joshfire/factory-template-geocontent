@@ -19,21 +19,37 @@
       "small": "marketing/geo-small.png",
       "big": "marketing/geo-large.png"
     },
-
+    "premium": true,
+    "price": {
+      "eur": 899,
+      "usd": 1199
+    },
     "devices": [
       {
         "devices": "tablet",
-        "startfile": "app/index.tablet.html"
+        "startfile": "app/index.tablet.html",
+        "price": {
+          "eur": 499,
+          "usd": 669
+        }
       },
       {
         "devices": "desktop",
         "startfile": "app/index.html",
-        "images": "marketing/geo-desktop.png"
+        "images": "marketing/geo-desktop.png",
+        "price": {
+          "eur": 399,
+          "usd": 533
+        }
       },
       {
         "devices": "tv",
         "startfile": "app/index.tv.html",
-        "images": "marketing/geo-tv.png"
+        "images": "marketing/geo-tv.png",
+        "price": {
+          "eur": 499,
+          "usd": 669
+        }
       }
     ],
 
