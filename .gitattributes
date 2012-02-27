@@ -1,1 +1,4 @@
 test export-ignore
+app/srcjs export-ignore
+app/boot.js export-ignore
+build.sh export-ignore
