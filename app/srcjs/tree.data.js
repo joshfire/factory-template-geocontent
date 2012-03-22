@@ -41,7 +41,7 @@ Joshfire.define([
               description: feedMeta.description,
               useContent: feedMeta.useContent,
               image: {
-                itemType: 'ImageObject',
+                '@type': 'ImageObject',
                 contentURL: feedMeta.image
               }
             }));
