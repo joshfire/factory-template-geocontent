@@ -5,5 +5,5 @@ rm app/js/*.js
 echo "Remove previous version of minified JS code... done"
 
 echo "Minify JS code..."
-for i in app/srcjs/*.js; do cat $i | uglifyjs > ${i/srcjs/js}; done
+for i in app/srcjs/*.js; do cat $i | uglifyjs -nc > ${i/srcjs/js}; done
 echo "Minify JS code... done"
