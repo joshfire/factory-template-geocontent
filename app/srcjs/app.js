@@ -5,6 +5,8 @@
  * The class extends the base app class of the Joshfire Framework.
  */
 
+/*global Joshfire, $, window, document, setTimeout, clearTimeout, async, setInterval, clearInterval*/
+
 Joshfire.define([
   'joshfire/app',
   'joshfire/class',
@@ -89,6 +91,12 @@ Joshfire.define([
       // Set the application's title
       if (Joshfire.factory.config.app.name) {
         $("head title").text(Joshfire.factory.config.app.name);
+      }
+
+      // Set the application's icon
+      if (Joshfire.factory.config.app.icon &&
+        Joshfire.factory.config.app.icon.contentURL) {
+        $("head").append('<link rel="apple-touch-icon-precomposed" href="'+ Joshfire.factory.config.app.icon.contentURL +'">');
       }
 
       // Set animation configuration options
@@ -415,16 +423,16 @@ Joshfire.define([
       }
       else {
         newsOut = _.sortBy(newsIn, function (item) {
-          return item.datePublished
-                  || item.dateModified
-                  || item.dateCreated
-                  || item.uploadDate
-                  || item.startDate
-                  || item.endDate
-                  || item.datePosted
-                  || item.foundingDate
-                  || item.birthDate
-                  || item.deathDate;
+          return item.datePublished ||
+            item.dateModified ||
+            item.dateCreated ||
+            item.uploadDate ||
+            item.startDate ||
+            item.endDate ||
+            item.datePosted ||
+            item.foundingDate ||
+            item.birthDate ||
+            item.deathDate;
         }).reverse();
       }
       
@@ -534,7 +542,6 @@ Joshfire.define([
             }
             list.focusById(items);
             break;
-          case 'index':
           default:
             _.each(items, function(idx, key){
                if (idx >= list.data.length){
@@ -576,7 +583,6 @@ Joshfire.define([
           case 'id':
             list.selectById(items);
             break;
-          case 'index':
           default:
             _.each(items, function(idx, key) {
               if (idx >= list.data.length) {
@@ -612,7 +618,7 @@ Joshfire.define([
         return false;
       }
 
-      var locationItem = _.reduce([
+      locationItem = _.reduce([
         'contentLocation',
         'location',
         'homeLocation',
@@ -679,7 +685,7 @@ Joshfire.define([
       var newsList = self.ui.element('/news');
       if (!newsList.data || !newsList.data.length){
         // No data ... no action
-        console.warn('No data to render');
+        //console.warn('No data to render');
         return false;
       }
       self.stopNewsCountdown();

@@ -13,7 +13,10 @@
     config: {
       "app": {
         "id": "4f2958a5f83d5b3b52000087",
-        "icon": null,
+        "icon": {
+          "@type": "ImageObject",
+          "contentURL": "http://imgur.com/blah"
+        },
         "logo": null,
         "name": "Volcanoes",
         "version": "1.0"
