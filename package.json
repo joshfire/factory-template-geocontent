@@ -376,6 +376,43 @@
           ]
         }
       ]
-    }
+    },
+
+    "libraries": [
+      {
+        "name": "Async.js",
+        "homepage": "https://github.com/caolan/async",
+        "description": "Async is a utility module which provides straight-forward, powerful functions for working with asynchronous JavaScript. Although originally designed for use with node.js, it can also be used directly in the browser.",
+        "repositories": [
+          {
+            "type": "git",
+            "url": "https://github.com/caolan/async.git"
+          }
+        ],
+        "licenses": [
+          {
+            "type": "MIT",
+            "url": "license-async.txt"
+          }
+        ]
+      },
+      {
+        "name": "Joshfire Framework",
+        "homepage": "http://framework.joshfire.com",
+        "description": "The first open source multi-device development framework. Using only standards like HTML5 and JavaScript, it allows developers and integrators to quickly create native and dedicated web apps for browsers, Node.JS, desktops, smart phones, smartTVs and connected objects.",
+        "repositories": [
+          {
+            "type": "git",
+            "url": "https://github.com/joshfire/joshfire-framework.git"
+          }
+        ],
+        "licenses": [
+          {
+            "type": "MIT",
+            "url": "https://raw.github.com/joshfire/joshfire-framework/master/LICENSE"
+          }
+        ]
+      }
+    ]
   }
 }
