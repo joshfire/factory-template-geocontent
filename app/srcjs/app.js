@@ -71,6 +71,11 @@ Joshfire.define([
      */
     started: false,
 
+    /**
+     * Can the slideshow continue?
+     */
+    paused: false,
+
 
     /**
     * Global application setup
@@ -172,6 +177,10 @@ Joshfire.define([
           else if ((event.keyCode === 'n'.charCodeAt(0)) || (event.keyCode === 'N'.charCodeAt(0))) {
             self.nextNews(self);
           }
+          else if ((event.keyCode === 's'.charCodeAt(0)) || (event.keyCode === 'S'.charCodeAt(0))) {
+            self.paused = !self.paused;
+            self.toggleNewsCountdown();
+          }
           else {
             self.headerFoldingCountdownReset(self);
           }
@@ -201,8 +210,19 @@ Joshfire.define([
           /** Does the user have settings saved within a cookie ? **/
           var cookiePrefs = JSON.parse(myCookie('geocontent-' + Joshfire.factory.config.app.id + '-categs'));
           if (cookiePrefs && cookiePrefs[mode] && cookiePrefs[mode].length) {
-            /** Restore user's categories **/
-           self.selectListItem(categs, 'id', cookiePrefs[mode]);
+            /** Restore user's categories, dropping categories that do not exist anymore
+                ( datasources may have changed) **/
+            var existingIDs = _.pluck(categs.data, 'id');
+            cookiePrefs[mode] = _.filter(cookiePrefs[mode], function (id) {
+              return _.include(existingIDs, id);
+            });
+            if (cookiePrefs[mode].length > 0) {
+              self.selectListItem(categs, 'id', cookiePrefs[mode]);
+            }
+            else {
+              /* Default: select first feed in the list **/
+              self.selectListItem(categs, 'index', 0);
+            }
           }
           else {
             /* Default: select first feed in the list **/
@@ -472,9 +492,11 @@ Joshfire.define([
      **/
     startNewsCountdown: function () {
       var self=this;
-      self.newsCountdown = setTimeout(function () {
-        self.nextNews(self);
-      }, self.newsShiftPeriod);
+      if (!self.paused) {
+        self.newsCountdown = setTimeout(function () {
+          self.nextNews(self);
+        }, self.newsShiftPeriod);
+      }
     },
 
     /**
