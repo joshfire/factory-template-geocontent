@@ -265,7 +265,6 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
-  z-index: -1;
   display: table;
   height: 100%;
 }
@@ -376,6 +375,10 @@ body {
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   color: #F1F1F1;
   padding-bottom: 40px;
+}
+
+.josh-id-detail .caption a {
+   color: #F1F1F1;
 }
 
 .josh-id-detail .caption p {
