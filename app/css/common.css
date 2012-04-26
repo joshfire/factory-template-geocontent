@@ -312,6 +312,10 @@ body {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
+  /* Minimum height to ensure author name displayed below title
+     is not too close to container borders when title is missing */
+  min-height: 5px;
 }
 
 /* The author next to the title */
