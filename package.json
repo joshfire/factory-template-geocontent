@@ -3,7 +3,7 @@
   "fullName": "GeoContent",
   "description": "Geolocalized content on a 3D globe",
   "author": "Joshfire",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This template takes one or more feeds of geolocalized content as input and runs a \"slideshow\" of the items on Earth. Depending on the capabilities of the device, the slideshow runs on a 3D globe or a 2D map.\n\nFor each item, the template displays the title and, depending on configuration settings, the image and description or the raw HTML content.\n\nThe template works best with KML datasources but it also handles content from other datasources whenever the content exposes coordinates. For instance, photos from a Flickr photoset may contain geolocalized information.\n\nThe template automatically skips content items when it cannot find coordinates. If you do not see the content of your datasource in the resulting application, it usually means that your content is not geolocalized or that the template did not receive the coordinates from the datasource.",
 
   "keywords": [
