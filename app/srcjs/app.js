@@ -656,13 +656,22 @@ Joshfire.define([
           latitude: Math.floor(Math.random() * 180) - 90,
           longitude: Math.floor(Math.random() * 360) - 180
         };
-      }*/     
+      }*/
       if (locationItem && locationItem.geo && locationItem.geo.latitude && locationItem.geo.longitude) {
         location = {
           lat: locationItem.geo.latitude,
           lng: locationItem.geo.longitude
         };
+      }
+      else if (locationItem) {
+        // Google spreadsheet, perhaps?
+        location = {
+          lat: data['gsx:lat'] || data['gsx:latitude'],
+          lng: data['gsx:lng'] || data['gsx:long'] || data['gsx:longitude']
+        };
+      }
 
+      if (location.lat && location.lng) {
         self.ui.element('/detail').hide();
         self.ui.element('/city').hide();
 
@@ -688,7 +697,6 @@ Joshfire.define([
             });
           });
         }
-        
       }
       else {
         self.nextNews(self);
