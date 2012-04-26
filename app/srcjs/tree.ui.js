@@ -22,6 +22,7 @@ Joshfire.define([
         {
           id: 'header',
           type: Panel,
+          autoShow: false,
           children: [
             {
               id: 'logo',

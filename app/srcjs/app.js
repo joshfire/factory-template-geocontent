@@ -153,17 +153,6 @@ Joshfire.define([
             categs.publish('data', null);
           }
         }, 4000);
-        
-        
-        // The header menu is displayed for a certain period of time,
-        // then folded automatically. Starts the countdown.
-        self.headerFoldingCountdownReset(self);
-        
-        // Most user interactions cause the header menu to appear on screen
-        // if it's not there already, and resets the countdown.
-        $(window).bind('touchstart click MozTouchDown swipeLeft swipeRight swipeUp swipeDown', function (e) {
-          self.headerFoldingCountdownReset(self);
-        });
 
         // If the user hits 'space', the currently displayed item is
         // highlighted again, and countdown to next item is reset.
@@ -190,6 +179,20 @@ Joshfire.define([
         // categories is initialized or updated. That should happen
         // only once in the lifetime of the application
         categs.subscribe('data', function (ev, data) {
+          if (!self.started) {
+            if (categs.data && (categs.data.length > 1)) {
+              // The header menu is displayed for a certain period of time,
+              // then folded automatically. Starts the countdown.
+              self.headerFoldingCountdownReset(self);
+              
+              // Most user interactions cause the header menu to appear on screen
+              // if it's not there already, and resets the countdown.
+              $(window).bind('touchstart click MozTouchDown swipeLeft swipeRight swipeUp swipeDown', function (e) {
+                self.headerFoldingCountdownReset(self);
+              });
+            }
+          }
+
           // console.warn('got categs data', categs.data)
           // Set the 'started' flag. That's it, we have data
           self.started = true;
