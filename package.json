@@ -24,29 +24,29 @@
       "desktop":{
         "devices":["desktop"],
         "onetime":{
-          "eur":1900,
-          "usd":2500
+          "eur":19,
+          "usd":25
         }
       },
       "tablet":{
         "devices":["tablet"],
         "onetime":{
-          "eur":1900,
-          "usd":2500
+          "eur":19,
+          "usd":25
         }
       },
       "tv":{
         "devices":["tv"],
         "onetime":{
-          "eur":2900,
-          "usd":3900
+          "eur":29,
+          "usd":39
         }
       },
       "all":{
         "devices":["tv","tablet","desktop"],
         "onetime":{
-          "eur":4900,
-          "usd":5900
+          "eur":49,
+          "usd":59
         }
       }
     },
