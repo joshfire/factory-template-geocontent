@@ -1,3 +1,11 @@
+/*!
+ * GeoContent template for the Joshfire Factory
+ *
+ * Copyright (C) 2012 Joshfire
+ * Licensed under the GPL Version 3:
+ * https://raw.github.com/joshfire/factory-template-geocontent/master/license.txt
+ */
+
 Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
   return Class(App, {
 
