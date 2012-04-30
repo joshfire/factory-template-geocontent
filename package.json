@@ -55,7 +55,7 @@
         }
       },
       "all":{
-        "devices":["tv","tablet","desktop"],
+        "devices":["*"],
         "onetime":{
           "eur":49,
           "usd":59
