@@ -3,12 +3,12 @@
   "fullName": "GeoContent",
   "description": "Geolocalized content on a 3D globe",
   "author": "Joshfire",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This template takes one or more feeds of geolocalized content as input and runs a \"slideshow\" of the items on Earth. Depending on the capabilities of the device, the slideshow runs on a 3D globe or a 2D map.\n\nFor each item, the template displays the title and, depending on configuration settings, the image and description or the raw HTML content.\n\nThe template works best with KML datasources but it also handles content from other datasources whenever the content exposes coordinates. For instance, photos from a Flickr photoset may contain geolocalized information.\n\nThe template automatically skips content items when it cannot find coordinates. If you do not see the content of your datasource in the resulting application, it usually means that your content is not geolocalized or that the template did not receive the coordinates from the datasource.",
   "licenses": [
     {
       "type": "GPL-3.0",
-      "url": "license.txt",
+      "url": "license.txt"
     }
   ],
   "repositories": [
@@ -80,45 +80,10 @@
     ],
 
     "datasources": {
-      "feed1": {
-        "title": "Geo content 1",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed2": {
-        "title": "Geo content 2",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed3": {
-        "title": "Geo content 3",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed4": {
-        "title": "Geo content 4",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed5": {
-        "title": "Geo content 5",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed6": {
-        "title": "Geo content 6",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed7": {
-        "title": "Geo content 7",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed8": {
-        "title": "Geo content 8",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed9": {
-        "title": "Geo content 9",
-        "description": "Non geolocalized items are ignored"
-      },
-      "feed10": {
-        "title": "Geo content 10",
-        "description": "Non geolocalized items are ignored"
+      "feeds": {
+        "title": "Geo content",
+        "description": "Non geolocalized items found in the feeds are ignored.",
+        "multiple": true
       }
     },
 
@@ -156,157 +121,13 @@
           "default": false
         },
 
-        "feeds": {
-          "title": "Quizzes metadata",
-          "type": "object",
-          "properties": {
-            "feed1": {
-              "title": "Feed 1",
+        "feedsMeta": {
+          "type": "array",
+          "title": "Feeds configuration",
+          "items": [
+            {
               "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed2": {
-              "title": "Feed 2",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed3": {
-              "title": "Feed 3",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed4": {
-              "title": "Feed 4",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed5": {
-              "title": "Feed 5",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed6": {
-              "title": "Feed 6",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed7": {
-              "title": "Feed 7",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed8": {
-              "title": "Feed 8",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed9": {
-              "title": "Feed 9",
-              "type": "object",
-              "properties": {
-                "image": {
-                  "title": "Image",
-                  "description": "Feed image (URL). Landscape image, 88x60 at least",
-                  "type": "string"
-                },
-                "useContent": {
-                  "title": "Content",
-                  "description": "The item's image and description are displayed when not set. The result of this option depends on the datasource: the item's content may not be set, it may not fit the bubble or simply not render well",
-                  "type": "boolean"
-                }
-              }
-            },
-            "feed10": {
-              "title": "Feed 10",
-              "type": "object",
+              "title": "Feed configuration",
               "properties": {
                 "image": {
                   "title": "Image",
@@ -320,84 +141,44 @@
                 }
               }
             }
-          }
+          ]
         }
       },
       "form": [
         {
-          "key": "enable3D",
-          "inlinetitle": "Enable 3D globe or stick to a 2D map representation"
-        },
-        "provider3D",
-        "durAnimation",
-        "durRefresh",
-        {
-          "key": "randomize",
-          "inlinetitle": "Randomize items (most recent items are displayed first otherwise)"
-        },
-        {
           "type": "fieldset",
-          "legend": "List of feeds",
+          "legend": "Main settings",
           "items": [
-            "datasources.feed1",
-            "feeds.feed1.image",
             {
-              "key": "feeds.feed1.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
+              "key": "enable3D",
+              "inlinetitle": "Enable 3D globe or stick to a 2D map representation"
             },
-            "datasources.feed2",
-            "feeds.feed2.image",
+            "provider3D",
+            "durAnimation",
+            "durRefresh",
             {
-              "key": "feeds.feed2.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed3",
-            "feeds.feed3.image",
+              "key": "randomize",
+              "inlinetitle": "Randomize items (most recent items are displayed first otherwise)"
+            }
+          ]
+        },
+        {
+          "type": "array",
+          "items": [
             {
-              "key": "feeds.feed3.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed4",
-            "feeds.feed4.image",
-            {
-              "key": "feeds.feed4.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed5",
-            "feeds.feed5.image",
-            {
-              "key": "feeds.feed5.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed6",
-            "feeds.feed6.image",
-            {
-              "key": "feeds.feed6.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed7",
-            "feeds.feed7.image",
-            {
-              "key": "feeds.feed7.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed8",
-            "feeds.feed8.image",
-            {
-              "key": "feeds.feed8.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed9",
-            "feeds.feed9.image",
-            {
-              "key": "feeds.feed9.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
-            },
-            "datasources.feed10",
-            "feeds.feed10.image",
-            {
-              "key": "feeds.feed10.useContent",
-              "inlinetitle": "Use item's HTML content in info bubble"
+              "type": "fieldset",
+              "legend": "Geolocalized feed XXXidxXXX",
+              "items": [
+                {
+                  "key": "datasources.feeds[]",
+                  "title": "Geo content"
+                },
+                "feedsMeta[].image",
+                {
+                  "key": "feedsMeta[].useContent",
+                  "inlinetitle": "Use item's HTML content in info bubble"
+                }
+              ]
             }
           ]
         }

@@ -9,6 +9,7 @@
 /**
  * @fileoverview Data model for the geocontent application.
  */
+/*global Joshfire*/
 
 Joshfire.define([
   'joshfire/class',
@@ -35,14 +36,19 @@ Joshfire.define([
       var getListOfFeeds = function () {
         var i = 0;
         var feeds = [];
-        var feedsMeta = Joshfire.factory.config.template.options.feeds;
+        var feedsMeta = Joshfire.factory.config.template.options.feedsMeta;
         var feed = null;
         var feedMeta = null;
 
         // Initialize the list of feeds
-        for (i = 1; i <= 10; i++) {
-          feed = Joshfire.factory.getDataSource('feed' + i);
-          feedMeta = (feedsMeta ? feedsMeta['feed' + i] : null) || {};
+        var feedsDatasources = Joshfire.factory.getDataSource('feeds');
+        if (!feedsDatasources.children) {
+          feedsDatasources.children = [feedsDatasources];
+        }
+        for (i = 0; i < feedsDatasources.children.length; i++) {
+          feed = feedsDatasources.children[i];
+          feedMeta = (feedsMeta && feedsMeta[i]) ? feedsMeta[i] : {};
+
           if (feed) {
             feeds.push(_.extend(feed, {
               id: '#' + i,
