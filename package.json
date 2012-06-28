@@ -168,7 +168,7 @@
           "items": [
             {
               "type": "fieldset",
-              "legend": "Geolocalized feed XXXidxXXX",
+              "legend": "Geolocalized feed {{idx}}",
               "items": [
                 {
                   "key": "datasources.feeds[]",
