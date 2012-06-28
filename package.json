@@ -164,11 +164,11 @@
           ]
         },
         {
-          "type": "array",
+          "type": "tabarray",
           "items": [
             {
               "type": "fieldset",
-              "legend": "Geolocalized feed {{idx}}",
+              "legend": "Feed {{idx}}",
               "items": [
                 {
                   "key": "datasources.feeds[]",
