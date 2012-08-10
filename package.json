@@ -32,37 +32,6 @@
       "small": "marketing/geo-small.png",
       "big": "marketing/geo-large.png"
     },
-    "premium": true,
-    "prices": {
-      "desktop":{
-        "devices":["desktop"],
-        "onetime":{
-          "eur":19,
-          "usd":25
-        }
-      },
-      "tablet":{
-        "devices":["tablet"],
-        "onetime":{
-          "eur":19,
-          "usd":25
-        }
-      },
-      "tv":{
-        "devices":["tv"],
-        "onetime":{
-          "eur":29,
-          "usd":39
-        }
-      },
-      "all":{
-        "devices":["*"],
-        "onetime":{
-          "eur":49,
-          "usd":59
-        }
-      }
-    },
     "devices": [
       {
         "devices": "tablet",
